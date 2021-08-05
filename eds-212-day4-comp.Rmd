@@ -1,0 +1,65 @@
+---
+title: "R. Leslie Matrix Example"
+author: "Connor Flynn"
+date: "8/5/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Creating matricies in R
+Use the `matrix` function to wrap a series of values ( a vector) into a matrix.
+
+- Use `nrow = ` to specify number of rows
+- Use `ncol = ` to specify number of columns
+- Use `byrow = TRUE ` to populate the matrix by ROWS instead of colums
+
+```{r}
+cats <- c(1, 3, 6, 5, 8, 10, 0.2, 4, 8, 10, 11, 100)
+
+# Wrap cats into a matrix
+
+cat_matrix <- matrix(data = cats, nrow = 4, ncol = 5, byrow = TRUE)
+# Repeats because vector length does not equal 4*5 = 20
+
+```
+
+```{r}
+ 
+dogs <- matrix(data = c(1, 0, 2, 3), nrow =2, ncol = 2, byrow = TRUE)
+
+
+bananas <- matrix(data = c(10, 20, 4, 8), nrow = 2, ncol = 2, byrow = TRUE)
+
+apples <- matrix(data = c(7, 4, 2, 2), nrow = 2, ncol = 2, byrow = TRUE)
+
+apples + bananas
+
+
+apples %*% bananas
+
+```
+
+# Make a Leslie Matrix
+
+```{r}
+leslie_matrix <- matrix(data = c(0, 0, 600, 0.2, 0, 0, 0, 0.08, 0.6), nrow = 3, ncol = 3, byrow = TRUE)
+
+# Specify inital conditions
+# What is the population in each life stage in year 0
+
+leslie_matrix_y0 <- c(1200, 700, 500)
+
+#project the population in each life stage for year 1 
+leslie_matrix_y1 <- leslie_matrix %*% leslie_matrix_y0
+
+leslie_matrix_y2 <- leslie_matrix %*% leslie_matrix_y1
+
+leslie_matrix_y3 <- leslie_matrix %*% leslie_matrix_y2
+
+
+
+```
+
