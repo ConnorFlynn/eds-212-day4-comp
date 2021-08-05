@@ -1,0 +1,54 @@
+---
+title: "My Fancy RMD"
+subtitle: "Change the YAML"
+author: "Connor Flynn"
+date: "8/5/2021"
+output: 
+  html_document:
+    theme: cerulean
+    toc: true
+    toc_float: true
+    number_sections: true
+    code_folding: hide
+    
+    
+  
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# Introduction
+
+## My First Chapter
+
+### Preface 
+
+Something Awesome!!
+
+```{r}
+a <- 10
+b <- 25
+
+meds <- a + b
+
+
+
+```
+
+# Final
+
+## My Second Chapter
+
+### Postface
+
+Also Awesome!!
+
+```{r}
+matrix_1 <- matrix(data = c(2, 4, 6, 8), nrow = 2, ncol = 2, byrow = TRUE )
+
+
+matrix_1
+
+```
+
